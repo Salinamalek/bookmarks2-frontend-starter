@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-// import Reviews from "./Reviews";
+import Reviews from "./Reviews";
 
 function BookmarkDetails() {
   const [bookmark, setBookmark] = useState([]);
@@ -13,7 +13,7 @@ function BookmarkDetails() {
     axios.get(`${API}/bookmarks/${id}`).then((response) => {
       setBookmark(response.data);
     });
-  }, [id, navigate, API]);
+  }, [id, navigate]);
   const deleteBookmark = () => {
     axios
       .delete(`${API}/bookmarks/${id}`)
@@ -57,7 +57,7 @@ function BookmarkDetails() {
           </div>
         </div>
       </article>
-      {/* <Reviews /> */}
+      <Reviews />
     </>
   );
 }
